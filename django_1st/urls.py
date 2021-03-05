@@ -19,6 +19,5 @@ from .import views #to import views.py file
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', views.about),
-    path('', views.index, name='index'),
-    path('', include('acc.urls'))
+    path('', views.login, name='login'),
 ]
