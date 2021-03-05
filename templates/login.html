@@ -119,17 +119,20 @@ span.psw {
 
 <div id="id01" class="modal">
 
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" method="post">
+    {% csrf_token %}
+
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      {% for messages in messages %}
+      <h3>{{message}}</h3>
+      {% endfor %}
     </div>
 
     <div class="container">
-      <label><b>Username</b></label>
+      <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="username" required>
 
-      <label><b>Password</b></label>
+      <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="password" required>
 
       <button type="submit">Login</button>
